@@ -8,7 +8,7 @@ function Stats(options) {
 	this.sprite = new Sprite({sprite: "sprites", w: 100, h: 100, offX: 300, offY: 0, scale: 0.3});
 }
 Stats.prototype.update = function(delta) {
-	if (!g.player) return;
+	if (g.state!="play") return;
 	if (g.entity.count("apple")==0) {
 		g.state="message";
 		g.entity.add(new Message({text:"Next Level!", callback:()=>{
